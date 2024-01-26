@@ -1,0 +1,76 @@
+{
+ "charts": [],
+ "content": "[{\"id\":\"qZTSXPU7D2\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">PG Management</span>\",\"col\":12}},{\"id\":\"m2Pa864msV\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room\",\"col\":3}},{\"id\":\"QqNjvsKlUv\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Room Booking Details\",\"col\":3}},{\"id\":\"WwILrgWbGP\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Guest\",\"col\":3}},{\"id\":\"ZpZM0HoIt8\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Work Log\",\"col\":3}},{\"id\":\"j_hgY8WELD\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PG Work Type\",\"col\":3}},{\"id\":\"gCoCzjBprG\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"PG Employee\",\"col\":3}}]",
+ "creation": "2024-01-26 18:53:39.299539",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "PG Management",
+ "links": [],
+ "modified": "2024-01-26 18:59:11.980218",
+ "modified_by": "Administrator",
+ "module": "PG Management",
+ "name": "PG Management",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 23.0,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "doc_view": "List",
+   "label": "Room",
+   "link_to": "Room",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Room Booking Details",
+   "link_to": "Room Booking Details",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Guest",
+   "link_to": "Customer",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Work Log",
+   "link_to": "Work Log",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "PG Work Type",
+   "link_to": "PG Work",
+   "stats_filter": "[]",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "PG Employee",
+   "link_to": "PG Employee",
+   "stats_filter": "[]",
+   "type": "DocType"
+  }
+ ],
+ "title": "PG Management"
+}
