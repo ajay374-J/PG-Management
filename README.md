@@ -25,6 +25,7 @@ When Submit Of Webpage Customer Doctype & Room Booking Details Doctype Entry Wil
 
 ###3.Working Details
     DOctypes:
+    
     1) Room ---PG Manager Will Create Room & Update Room Details: Wrriten Background Job To update Room Status
     
     2)Customer---Entry Automatically Created when Guest Submit web form.
