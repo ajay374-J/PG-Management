@@ -1,3 +1,9 @@
+{% extends "templates/web.html" %}
+
+{% block page_content %}
+
+
+
 <head>
     <style>
         body {
@@ -42,6 +48,9 @@
         border-radius: 4px;
         cursor: pointer;
     }
+    .thankyou {
+        font-size: 2rem;
+    }
     
     button:hover {
         background-color: #45a049;
@@ -80,7 +89,7 @@
     .out {
         display: flex;
         gap: 1rem;
-        border:1px solid black;
+        /* border:1px solid black; */
     }
     
     .filling-form {
@@ -95,7 +104,7 @@
     <body>
     <div class="container">
         <h1>{{ title }}</h1>
-    
+        <div id="booking-info">
         <h2>Check Room Availability</h2>
       
             <label for="check-in">Check-in Date:</label>
@@ -114,6 +123,7 @@
     
        
         <hr>
+        <label for="rooom">Please Select from the available Rooms listed below:</label>
         <div class="out" id="output"></div>
         <hr>
         <div class="filling-form" id="form-filling">
@@ -136,34 +146,31 @@
             <br>
             <label for="add">Address:</label>
             <input type="longtext" id="add" required>
-            <button  type="submit">Submit</button>
+            <button onclick="create_guest()">Submit</button>
             
         </div>
     </div>
+    </div>
     <script>
-     
         async function get_data(){
             let check_in=document.getElementById('check-in').value
             let check_out=document.getElementById('check-out').value
             let room=document.getElementById('room').value
             let out=document.getElementById('output')
-            console.log('check_in',check_in)
-            console.log('check-out',check_out)
-            console.log('room',room)
-            console.log("api runnning")
+            
+           if(!check_in || !check_out ){
+                alert("Date Is required")
+                return
+           }
             let res= await fetch (`api/method/pg_management.api.get_data?check_in=${check_in}&check_out=${check_out}&room=${room}`)
-            console.log("rrr:,",res)
+            
             let val=await res.json()
-            // out.innerHTML=val.message
-            console.log("res",val.message)
             out.innerHTML=''
             for (let i of val.message){
                 let div=document.createElement('div')
                 div.classList.add('card')
                 let name=document.createElement('div')
                 let avail=document.createElement('div')
-                // let a=document.createElement('a')
-                // a.href='http://localhost:8000/book-room/new'
                 name.innerHTML=`${i.name}`
                 if (i.available){
                     avail.innerHTML=`${i.available}`
@@ -171,9 +178,6 @@
                 div.onclick=()=>show_form(i.name,check_in,check_out,room)
                 div.appendChild(name)
                 div.appendChild(avail)
-                console.log('i',i)
-                // a.appendChild(div)
-                // out.append(a)
                 out.append(div)
             }
         }
@@ -182,8 +186,6 @@
             console.log('show_form',a,b,c)
             let frm=document.getElementById('form-filling')
             frm.style.display='block'
-            // let out=document.getElementById('output')
-            // out.style.display='none'
             let ip0=document.getElementById('r-no')
             let ip1=document.getElementById('frm-name').value
             let ip2=document.getElementById('age').value
@@ -191,14 +193,49 @@
             let ip4=document.getElementById('m-no').value
             let ip5=document.getElementById('add').value
             let out=document.getElementById('output')
-            var submit= document.getElementById('submit');
-
-            if (submit) {
-                submit.addEventListener('click', show_form(a,b,c,d,ip0,ip1,ip2,ip3,ip4,ip5));
-            }
-            let res= await fetch (`api/method/pg_management.api.get_data?check_in=${b}&check_out=${c}&room=${d}&r_no=${a}&r_no=${ip1}$f_name=$(),age,gender,m_no,address`)
+            
     
             ip0.value=a
         }
+        async function create_guest(){
+            let check_in=document.getElementById('check-in').value
+            let check_out=document.getElementById('check-out').value
+            let room=document.getElementById('room').value
+            let ip0=document.getElementById('r-no').value
+            let ip1=document.getElementById('frm-name').value
+            let ip2=document.getElementById('age').value
+            let ip3=document.getElementById('gender').value
+            let ip4=document.getElementById('m-no').value
+            let ip5=document.getElementById('add').value
+            let booking_info=document.getElementById('booking-info')
+            // window.csrf_token = '{{ csrf_token }}'; 
+            frappe.call({
+                method:'pg_management.api.create_guest',
+                type: 'POST',
+                args:{
+                    check_in: check_in,
+                    check_out: check_out,
+                    room:room,
+                    r_no:ip0,
+                    f_name:ip1,
+                    age:ip2,
+                    gender:ip3,
+                    m_no:ip4,
+                    address:ip5
+
+                },
+                callback:function(r){
+                    // booking_info.style.display="none"
+                    booking_info.innerHTML=`<h1 class="thankyou">Thankyou For Booking</h1>`
+                }
+                
+            
+            })
+        }
+
+        
     </script>
     </body>
+
+
+    {% endblock %}

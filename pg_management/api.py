@@ -1,4 +1,5 @@
 import frappe
+from frappe.utils.data import getdate
 
 @frappe.whitelist(allow_guest=True)
 def get_data(check_in,check_out,room):
@@ -30,3 +31,14 @@ def get_data(check_in,check_out,room):
 def create_guest(check_in,check_out,room,r_no,f_name,age,gender,m_no,address):
     doc=frappe.new_doc("Customer")
     doc.guest_name=f_name
+    doc.age=age
+    doc.mobile_no=m_no
+    doc.gender=gender
+    doc.address=address
+    doc.save(ignore_permissions=True)
+
+    room_book=frappe.new_doc("Room Booking Details")
+    room_book.guest=doc.name
+    room_book.room_no=r_no
+    room_book.booking_date=getdate(check_in)
+    room_book.save(ignore_permissions=True)
