@@ -16,7 +16,7 @@ Pg Management Workspace
 <img width="866" alt="PG Management main page" src="https://github.com/ajay374-J/PG-Management/blob/master/pg_management/images/Screenshot%202024-01-26%20at%206.59.36%E2%80%AFPM.png">
 
 ### 2. Room Booking Page
-Guest Will See AVailable Room & Book Room from This WebPage
+Guest Will See AVailable Room & Book Room from This WebPage : [your_site_url]/room_booking
 <img width="866" alt="PG Management main page" src="https://github.com/ajay374-J/PG-Management/blob/master/pg_management/images/Screenshot%202024-01-26%20at%206.24.37%E2%80%AFPM.png">
 <img width="866" alt="PG Management main page" src="https://github.com/ajay374-J/PG-Management/blob/master/pg_management/images/Screenshot%202024-01-26%20at%206.24.37%E2%80%AFPM.png">
 <img width="866" alt="PG Management main page" src="https://github.com/ajay374-J/PG-Management/blob/master/pg_management/images/Screenshot%202024-01-26%20at%206.24.45%E2%80%AFPM.png">
