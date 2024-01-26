@@ -1,0 +1,102 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-01-24 22:36:11.875525",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "guest",
+  "guest_name",
+  "room_no",
+  "column_break_igsaw",
+  "booking_date",
+  "status",
+  "checkout_date",
+  "amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "guest",
+   "fieldtype": "Link",
+   "label": "Guest",
+   "options": "Customer"
+  },
+  {
+   "fetch_from": "guest.guest_name",
+   "fieldname": "guest_name",
+   "fieldtype": "Read Only",
+   "label": "Guest Name"
+  },
+  {
+   "fieldname": "column_break_igsaw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "booking_date",
+   "fieldtype": "Date",
+   "label": "Booking Date"
+  },
+  {
+   "fieldname": "room_no",
+   "fieldtype": "Link",
+   "label": "Room No",
+   "options": "Room"
+  },
+  {
+   "depends_on": "eval:doc.status==\"Closed\"",
+   "fieldname": "checkout_date",
+   "fieldtype": "Date",
+   "label": "Checkout Date",
+   "mandatory_depends_on": "eval:doc.status==\"Closed\""
+  },
+  {
+   "fieldname": "amount",
+   "fieldtype": "Currency",
+   "label": "Amount"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Open\nClosed"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-01-26 12:37:21.148033",
+ "modified_by": "Administrator",
+ "module": "PG Management",
+ "name": "Room Booking Details",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "PG Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

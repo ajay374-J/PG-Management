@@ -64,7 +64,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "pg_management.install.before_install"
-# after_install = "pg_management.install.after_install"
+after_install = "pg_management.install.after_install"
 
 # Uninstallation
 # ------------
@@ -129,23 +129,30 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-#	"all": [
-#		"pg_management.tasks.all"
-#	],
-#	"daily": [
-#		"pg_management.tasks.daily"
-#	],
-#	"hourly": [
-#		"pg_management.tasks.hourly"
-#	],
-#	"weekly": [
-#		"pg_management.tasks.weekly"
-#	],
-#	"monthly": [
-#		"pg_management.tasks.monthly"
-#	],
-# }
+# your_app/hooks.py
+
+# website_route_rules = [
+#     {"from_route": "/room-booking", "to_route": "room-booking"}
+# ]
+
+
+scheduler_events = {
+	# "all": [
+	# 	"pg_management.tasks.all"
+	# ],
+	"daily": [
+		"pg_management.pg_management.doctype.work_log.work_log.create_work_log"
+	],
+	"hourly": [
+		"pg_management.pg_management.doctype.room.room.get_status"
+	],
+	# "weekly": [
+	# 	"pg_management.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"pg_management.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
